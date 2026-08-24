@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-graphite-950 text-graphite-100 font-body antialiased;
+  background-image:
+    linear-gradient(to bottom, rgba(232, 163, 61, 0.05), transparent 200px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 96px);
+}
+
+::selection {
+  background: #E8A33D;
+  color: #121215;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3B3B44 #1B1B1F;
+}
+
+:focus-visible {
+  outline: 2px solid #E8A33D;
+  outline-offset: 2px;
+}
+
+.trace-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(232, 163, 61, 0.4), transparent);
+}
+
+.spec-row {
+  @apply flex items-center justify-between py-2 border-b border-graphite-700 font-mono text-sm;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 bg-copper-500 text-graphite-950 font-display font-semibold px-5 py-2.5 rounded-sm hover:bg-copper-400 active:bg-copper-600 transition-colors disabled:opacity-40 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 bg-transparent border border-graphite-600 text-graphite-100 font-display font-medium px-5 py-2.5 rounded-sm hover:border-copper-500 hover:text-copper-400 transition-colors disabled:opacity-40 disabled:cursor-not-allowed;
+}
+
+.input-field {
+  @apply w-full bg-graphite-900 border border-graphite-600 text-graphite-100 placeholder-graphite-400 px-3.5 py-2.5 rounded-sm focus:border-copper-500 transition-colors outline-none;
+}
+
+.card {
+  @apply bg-graphite-900 border border-graphite-700 rounded-sm;
+}
