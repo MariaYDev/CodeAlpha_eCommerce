@@ -1,0 +1,22 @@
+import React from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+
+export default function ProtectedRoute({ children }) {
+  const { token, loading } = useAuth();
+  const location = useLocation();
+
+  if (loading) {
+    return (
+      <div className="max-w-6xl mx-auto px-5 py-24 text-center text-graphite-400 font-mono text-sm">
+        Loading...
+      </div>
+    );
+  }
+
+  if (!token) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
+  return children;
+}
